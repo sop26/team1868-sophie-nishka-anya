@@ -9,6 +9,7 @@
 #include "ctre/Phoenix.h"
 #include <rev/CANSparkMax.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
+#include <frc/drive/DifferentialDrive.h>
 
 class Drivetrain: public frc2::SubsystemBase {
  public:
