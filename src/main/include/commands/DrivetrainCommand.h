@@ -6,7 +6,6 @@
 
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
-
 #include "subsystems/Drivetrain.h"
 
 /**
@@ -30,10 +29,10 @@ class DrivetrainCommand
    *
    * @param subsystem The subsystem used by this command.
    */
-  explicit DrivetrainCommand(Drivetrain* _drivetrain, ControlBoard* _humanControl);
+  DrivetrainCommand(Drivetrain* _drivetrain, ControlBoard* _humanControl);
 
  private:
   Drivetrain* _drivetrain;
-  ControlBoard* _controlBoard;
+  ControlBoard* _humanControl;
  
 };
