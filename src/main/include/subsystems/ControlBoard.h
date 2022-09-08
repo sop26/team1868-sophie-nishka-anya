@@ -18,7 +18,7 @@ class ControlBoard{
   double GetRightX();
   double GetLeftY(); 
   double GetRightY(); 
-
+  double GetLeftBumper();
  private:
   // Joysticks for drive
 

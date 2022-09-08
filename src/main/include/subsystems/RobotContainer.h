@@ -5,6 +5,8 @@
 #pragma once
 
 #include "ControlBoard.h"
+#include "subsystems/Drivetrain.h"
+#include "commands/DrivetrainCommand.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -20,7 +22,8 @@ class RobotContainer {
  
  private:
   // The robot's subsystems and commands are defined here...
-  
-
+  Drivetrain *_drivetrain;
+  ControlBoard * _humanControl;
+  DrivetrainCommand* _drivetrainCommand;
   void ConfigureButtonBindings();
 };
