@@ -5,29 +5,27 @@
 #include "subsystems/Drivetrain.h"
 #include <rev/CANSparkMax.h>
 
-
 Drivetrain::Drivetrain() {
-  _leftPrimary = new WPI_TalonSRX(0); 
+  _leftPrimary = new WPI_TalonSRX(0);
   _leftSecondary = new WPI_TalonSRX(0);
   _rightPrimary = new WPI_TalonSRX(0);
   _rightSecondary = new WPI_TalonSRX(0);
   _leftMotors = new frc::MotorControllerGroup(*_leftPrimary, *_leftSecondary);
-  _rightMotors = new frc::MotorControllerGroup(*_rightPrimary, *_rightSecondary);
+  _rightMotors =
+      new frc::MotorControllerGroup(*_rightPrimary, *_rightSecondary);
   _drive = new frc::DifferentialDrive(*_leftMotors, *_rightMotors);
-  
+
   // Implementation of subsystem construcr goes here.
 }
 
-void Drivetrain::ArcadeDrive(double thrust, double rotation){
-  _drive->ArcadeDrive (thrust, rotation);
-} 
+void Drivetrain::ArcadeDrive(double thrust, double rotation) {
+  _drive->ArcadeDrive(thrust, rotation);
+}
 
-// curvature 
-void Drivetrain::CurvatureDrive(double thrust, double rotation, bool allowTurnInPlace){
+// curvature
+void Drivetrain::CurvatureDrive(double thrust, double rotation,
+                                bool allowTurnInPlace) {
   _drive->CurvatureDrive(thrust, rotation, allowTurnInPlace);
 }
 
-
-void Drivetrain::SetMotorValue(double thrust, double rotation){
-
-}
+void Drivetrain::SetMotorValue(double thrust, double rotation) {}

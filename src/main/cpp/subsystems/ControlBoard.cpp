@@ -5,24 +5,19 @@
 #include "subsystems/ControlBoard.h"
 
 ControlBoard::ControlBoard() {
-
   _xbox = new frc::XboxController(0);
   // Implementation of subsystem construcr goes here.
 }
 
-double ControlBoard::GetLeftX(){
+double ControlBoard::GetLeftX() {
   return _xbox->GetLeftX();
-}	
-double ControlBoard::GetRightX(){
+}
+double ControlBoard::GetRightX() {
   return _xbox->GetRightX();
-} 
-double ControlBoard::GetLeftY(){
+}
+double ControlBoard::GetLeftY() {
   return _xbox->GetLeftY();
-} 
-double ControlBoard::GetRightY(){
+}
+double ControlBoard::GetRightY() {
   return _xbox->GetRightY();
-} 
-
-
-
-
+}

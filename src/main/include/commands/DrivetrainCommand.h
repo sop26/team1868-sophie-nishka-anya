@@ -18,13 +18,11 @@
 class DrivetrainCommand
     : public frc2::CommandHelper<frc2::CommandBase, DrivetrainCommand> {
  public:
-
-
   void Execute() override;
   /**
-   * 
-   * 
-   * 
+   *
+   *
+   *
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
@@ -34,5 +32,4 @@ class DrivetrainCommand
  private:
   Drivetrain* _drivetrain;
   ControlBoard* _humanControl;
- 
 };

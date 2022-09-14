@@ -14,7 +14,7 @@
  * they are needed.
  */
 // Joysticks
-static const int LEFT_JOY_USB_PORT                       = 1; 
-static const int RIGHT_JOY_USB_PORT                      = 0; 
-static const int OPERATOR_JOY_USB_PORT                   = 2; // TODO: fix
-static const int OPERATOR_JOY_B_USB_PORT                 = 3;
+static const int LEFT_JOY_USB_PORT = 1;
+static const int RIGHT_JOY_USB_PORT = 0;
+static const int OPERATOR_JOY_USB_PORT = 2;  // TODO: fix
+static const int OPERATOR_JOY_B_USB_PORT = 3;
