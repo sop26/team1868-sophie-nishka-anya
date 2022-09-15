@@ -5,13 +5,8 @@
 #include "subsystems/RobotContainer.h"
 
 RobotContainer::RobotContainer() {
-  // Initialize all of your commands and subsystems here
-  _drivetrain = new Drivetrain();
-  _humanControl = new ControlBoard();
-  _drivetrainCommand = new DrivetrainCommand(_drivetrain, _humanControl);
   ///* store the commands and reuse them*/
-
-  _drivetrain->SetDefaultCommand(*_drivetrainCommand);
+  _drivetrain.SetDefaultCommand(_drivetrainCommand);
 
   // Configure the button bindings
   ConfigureButtonBindings();

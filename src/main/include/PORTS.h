@@ -14,7 +14,14 @@
  * they are needed.
  */
 // Joysticks
-static const int LEFT_JOY_USB_PORT = 1;
-static const int RIGHT_JOY_USB_PORT = 0;
-static const int OPERATOR_JOY_USB_PORT = 2;  // TODO: fix
-static const int OPERATOR_JOY_B_USB_PORT = 3;
+// constexpr int LEFT_JOY_USB_PORT = 1;
+// constexpr int RIGHT_JOY_USB_PORT = 0;
+// constexpr int OPERATOR_JOY_USB_PORT = 2;  // TODO: fix
+// constexpr int OPERATOR_JOY_B_USB_PORT = 3;
+
+constexpr int XBOX_DRIVER_PORT = 0;
+
+constexpr int LEFT_PRIMARY_ID = 0;
+constexpr int LEFT_SECONDARY_ID = 1;
+constexpr int RIGHT_PRIMARY_ID = 2;
+constexpr int RIGHT_SECONDARY_ID = 3;

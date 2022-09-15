@@ -27,9 +27,9 @@ class DrivetrainCommand
    *
    * @param subsystem The subsystem used by this command.
    */
-  DrivetrainCommand(Drivetrain* _drivetrain, ControlBoard* _humanControl);
+  DrivetrainCommand(Drivetrain& drivetrain, ControlBoard& humanControl);
 
  private:
-  Drivetrain* _drivetrain;
-  ControlBoard* _humanControl;
+  Drivetrain& _drivetrain;
+  ControlBoard& _humanControl;
 };
