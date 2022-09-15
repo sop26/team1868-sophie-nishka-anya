@@ -10,18 +10,20 @@
 #include <frc/drive/DifferentialDrive.h>
 #include "ControlBoard.h"
 
-class Drivetrain: public frc2::SubsystemBase {
+class Drivetrain : public frc2::SubsystemBase {
  public:
   Drivetrain();
-  void SetMotorValue(double thrust, double rotation);
   void ArcadeDrive(double thrust, double rotation);
+  void CurvatureDrive(double thrust, double rotation, bool allowTurnInPlace);
 
-  
  private:
-  WPI_TalonSRX *_leftPrimary, *_leftSecondary, *_rightPrimary, *_rightSecondary;
-  frc::MotorControllerGroup *_leftMotors, *_rightMotors;
-  frc::DifferentialDrive *_drive;
-  // MotorControllerGroup _drive = new DifferentialDrive(_leftMotors, _rightMotors);
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
+  WPI_TalonSRX _leftPrimary{LEFT_PRIMARY_ID};
+  WPI_TalonSRX _leftSecondary{LEFT_SECONDARY_ID};
+  WPI_TalonSRX _rightPrimary{RIGHT_PRIMARY_ID};
+  WPI_TalonSRX _rightSecondary{RIGHT_SECONDARY_ID};
+  frc::MotorControllerGroup _leftMotors{_leftPrimary, _leftSecondary};
+  frc::MotorControllerGroup _rightMotors{_rightPrimary, _rightSecondary};
+  frc::DifferentialDrive _drive{_leftMotors, _rightMotors};
+  // Components (e.g. motor controllers and sensors) should
+  // generally be declared private and exposed only through public methods.
 };

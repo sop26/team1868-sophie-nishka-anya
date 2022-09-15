@@ -1,11 +1,9 @@
 
 #pragma once
-#include "subsystems/PORTS.h"
+#include "PORTS.h"
 #include <frc/XboxController.h>
 
-
-
-class ControlBoard{
+class ControlBoard {
  public:
   ControlBoard();
 
@@ -13,20 +11,18 @@ class ControlBoard{
    * Will be called periodically whenever the CommandScheduler runs.
    */
 
-
-  double GetLeftX();	
+  double GetLeftX();
   double GetRightX();
-  double GetLeftY(); 
-  double GetRightY(); 
-  double GetLeftBumper();
+  double GetLeftY();
+  double GetRightY();
+  bool GetLeftBumper();
+  bool GetLeftTrigger();
+
  private:
   // Joysticks for drive
 
-  frc::XboxController *_xbox;	
+  frc::XboxController _xbox{XBOX_DRIVER_PORT};
 
-  
-  
-    
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

@@ -19,11 +19,10 @@ class RobotContainer {
  public:
   RobotContainer();
 
- 
  private:
   // The robot's subsystems and commands are defined here...
-  Drivetrain *_drivetrain;
-  ControlBoard * _humanControl;
-  DrivetrainCommand* _drivetrainCommand;
+  Drivetrain _drivetrain{};
+  ControlBoard _humanControl{};
+  DrivetrainCommand _drivetrainCommand{_drivetrain, _humanControl};
   void ConfigureButtonBindings();
 };

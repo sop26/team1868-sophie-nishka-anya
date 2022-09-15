@@ -4,22 +4,22 @@
 
 #include "commands/DrivetrainCommand.h"
 
-DrivetrainCommand::DrivetrainCommand(Drivetrain* _drivetrain, ControlBoard* _humanControl)
-    : _drivetrain{_drivetrain} {
-        _humanControl = _humanControl;
-    }
-   
-
+DrivetrainCommand::DrivetrainCommand(Drivetrain& drivetrain,
+                                     ControlBoard& humanControl)
+    : _drivetrain{drivetrain}, _humanControl{humanControl} {}
 
 void DrivetrainCommand::Execute() {
-    // if the left trigger is pressed use arcade drive
-    // else use curvature drive
+  // if the left trigger is pressed use arcade drive
+  // else use curvature drive
 
-    if(_humanControl->GetLeftTrigger()) {
-        _drivetrain->ArcadeDrive(_humanControl->GetRightY(), _humanControl->GetLeftX());
-    } else {
-        _drivetrain->CurvatureDrive(_humanControl->GetRightY(), _humanControl->GetLeftX(), _humanControl->GetLeftBumper());
-    }
+  if (_humanControl.GetLeftTrigger()) {
+    _drivetrain.ArcadeDrive(_humanControl.GetRightY(),
+                            _humanControl.GetLeftX());
+  } else {
+    _drivetrain.CurvatureDrive(_humanControl.GetRightY(),
+                               _humanControl.GetLeftX(),
+                               _humanControl.GetLeftBumper());
+  }
 }
- // bool hint from top right trigger of the container
- // to switch from drive mode one to the other: 
+// bool hint from top right trigger of the container
+// to switch from drive mode one to the other:
