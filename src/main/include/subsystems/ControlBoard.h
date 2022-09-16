@@ -1,7 +1,9 @@
 
 #pragma once
 #include "PORTS.h"
+#include <frc/Joystick.h>
 #include <frc/XboxController.h>
+
 
 class ControlBoard {
  public:
@@ -18,10 +20,15 @@ class ControlBoard {
   bool GetLeftBumper();
   bool GetLeftTrigger();
 
+  
+
+
  private:
   // Joysticks for drive
 
   frc::XboxController _xbox{XBOX_DRIVER_PORT};
+  frc::Joystick _leftJoy{LEFT_JOYSTICK_DRIVER_PORT};
+  frc::Joystick _rightJoy{RIGHT_JOYSTICK_DRIVER_PORT};
 
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.

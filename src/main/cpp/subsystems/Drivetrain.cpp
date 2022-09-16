@@ -6,6 +6,7 @@
 #include <rev/CANSparkMax.h>
 
 Drivetrain::Drivetrain() {
+  _rightMotors.SetInverted(true);
   // Implementation of subsystem constructor goes here.
 }
 
