@@ -23,7 +23,7 @@ class Drivetrain : public frc2::SubsystemBase {
   WPI_TalonSRX _rightSecondary{RIGHT_SECONDARY_ID};
   frc::MotorControllerGroup _leftMotors{_leftPrimary, _leftSecondary};
   frc::MotorControllerGroup _rightMotors{_rightPrimary, _rightSecondary};
-  frc::DifferentialDrive _drive{_leftMotors, _rightMotors};
+  frc::DifferentialDrive _drive{_rightMotors, _leftMotors};
   // Components (e.g. motor controllers and sensors) should
   // generally be declared private and exposed only through public methods.
 };

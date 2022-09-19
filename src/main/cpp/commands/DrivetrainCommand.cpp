@@ -6,20 +6,23 @@
 
 DrivetrainCommand::DrivetrainCommand(Drivetrain& drivetrain,
                                      ControlBoard& humanControl)
-    : _drivetrain{drivetrain}, _humanControl{humanControl} {}
+    : _drivetrain{drivetrain}, _humanControl{humanControl} {
+        AddRequirements(&drivetrain);
+    }
 
 void DrivetrainCommand::Execute() {
   // if the left trigger is pressed use arcade drive
   // else use curvature drive
 
-  if (_humanControl.GetLeftTrigger()) {
-    _drivetrain.ArcadeDrive(_humanControl.GetRightY(),
-                            _humanControl.GetLeftX());
-  } else {
+//   if (_humanControl.GetLeftTrigger()) {
+    // _drivetrain.ArcadeDrive(_humanControl.GetRightY(),
+    //                         _humanControl.GetLeftX());
+//   } else {
     _drivetrain.CurvatureDrive(_humanControl.GetRightY(),
                                _humanControl.GetLeftX(),
-                               _humanControl.GetLeftBumper());
-  }
+                               true);
+                            //    _humanControl.GetLeftBumper());
+//   }
 }
 // bool hint from top right trigger of the container
 // to switch from drive mode one to the other:
