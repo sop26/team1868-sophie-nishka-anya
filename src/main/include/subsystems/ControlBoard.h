@@ -19,7 +19,7 @@ class ControlBoard {
   double GetRightY();
   bool GetLeftBumper();
   bool GetLeftTrigger();
-
+  bool GetRightTrigger();
   
 
 

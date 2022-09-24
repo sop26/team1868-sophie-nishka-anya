@@ -28,4 +28,6 @@ constexpr int LEFT_SECONDARY_ID = 2;
 constexpr int RIGHT_PRIMARY_ID = 1;
 constexpr int RIGHT_SECONDARY_ID = 3;
 
-
+//shooter
+constexpr int FLYWHEEL_MOTOR_PORT = 8;
+constexpr int FLYWHEEL_PREP_MOTOR_PORT = 5;

@@ -7,6 +7,8 @@
 #include "ControlBoard.h"
 #include "subsystems/Drivetrain.h"
 #include "commands/DrivetrainCommand.h"
+#include "subsystems/Shooter.h"
+#include "commands/ShooterCommand.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -22,7 +24,9 @@ class RobotContainer {
  private:
   // The robot's subsystems and commands are defined here...
   Drivetrain _drivetrain{};
+  Shooter _shooter{};
   ControlBoard _humanControl{};
   DrivetrainCommand _drivetrainCommand{_drivetrain, _humanControl};
+  ShooterCommand _shooterCommand{_shooter, _humanControl};
   void ConfigureButtonBindings();
 };
