@@ -4,9 +4,18 @@
 
 #pragma once
 
+#include <frc2/command/Command.h>
+
+#include "commands/ExampleCommand.h"
+#include "subsystems/ExampleSubsystem.h"
 #include "ControlBoard.h"
+
+#include "commands/DriveCommand.h"
+#include "commands/ShootCommand.h"
+
 #include "subsystems/Drivetrain.h"
-#include "commands/DrivetrainCommand.h"
+#include "subsystems/Shooter.h"
+#include "LEDController.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -19,10 +28,21 @@ class RobotContainer {
  public:
   RobotContainer();
 
+  frc2::Command* GetAutonomousCommand();
+  void UpdateControls();
+  void UpdateSensors();
+
  private:
   // The robot's subsystems and commands are defined here...
+  ExampleSubsystem m_subsystem;
+  ExampleCommand m_autonomousCommand;
   Drivetrain _drivetrain{};
-  ControlBoard _humanControl{};
-  DrivetrainCommand _drivetrainCommand{_drivetrain, _humanControl};
+  Shooter _shooter{};
+  ControlBoard _controlBoard{};
+  LEDController _ledController{};
+
+  DriveCommand _driveCommand{_drivetrain, _controlBoard};
+  ShootCommand _shootCommand{_shooter, _controlBoard};
+
   void ConfigureButtonBindings();
 };

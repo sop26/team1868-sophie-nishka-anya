@@ -1,12 +1,10 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #pragma once
 
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
+
 #include "subsystems/Drivetrain.h"
+#include "ControlBoard.h"
 
 /**
  * An example command that uses an example subsystem.
@@ -15,21 +13,24 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DrivetrainCommand
-    : public frc2::CommandHelper<frc2::CommandBase, DrivetrainCommand> {
+class DriveCommand
+    : public frc2::CommandHelper<frc2::CommandBase, DriveCommand> {
  public:
-  void Execute() override;
   /**
-   *
-   *
-   *
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  DrivetrainCommand(Drivetrain& drivetrain, ControlBoard& humanControl);
+
+  // DriveCommand(Drivetrain* drivetrain, std::function<double()> forward,
+  // std::function<double()> rotation);
+  DriveCommand(Drivetrain& drivetrain, ControlBoard& controlboard);
+
+  void Execute() override;
 
  private:
   Drivetrain& _drivetrain;
-  ControlBoard& _humanControl;
+  ControlBoard& _controlboard;
+  // std::function<double()> m_forward;
+  // std::function<double()> m_rotation;
 };
