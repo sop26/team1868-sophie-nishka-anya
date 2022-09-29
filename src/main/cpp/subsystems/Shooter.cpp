@@ -6,7 +6,7 @@
 
 
 Shooter::Shooter() {
-
+    
 }
 
 void Shooter::SetFlywheelOutput(double power){

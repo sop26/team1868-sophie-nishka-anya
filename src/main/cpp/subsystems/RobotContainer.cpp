@@ -20,3 +20,8 @@ void RobotContainer::ConfigureButtonBindings() {
 
 // declaring = know that they exist
 // defining = set what the things (that are defined) are equal to
+
+void RobotContainer::UpdateControls(){
+  _humanControl.Update();
+
+}

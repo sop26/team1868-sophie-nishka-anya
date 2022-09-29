@@ -11,10 +11,17 @@ ShooterCommand::ShooterCommand(Shooter& shooter,
     }
 
 void ShooterCommand::Execute(){
-    if(_humanControl.GetLeftTrigger()){
+    if(_humanControl.GetFlywheelDesired()){
         _shooter.SetFlywheelOutput(.75);
     }
-    if(_humanControl.GetRightTrigger()){
+    else{
+        _shooter.SetFlywheelOutput(0);
+    }
+    if(_humanControl.GetFlywheelPrepDesired()){
         _shooter.SetFlywheelPrepOutput(.5);
+    }
+    else{
+        _shooter.SetFlywheelPrepOutput(0);
+        
     }
 }
