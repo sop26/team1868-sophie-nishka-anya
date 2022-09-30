@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "ControlBoard.h"
+#include "subsystems/ControlBoard.h"
 
 ControlBoard::ControlBoard() {
   _leftJoyX = 0.0;

@@ -1,4 +1,4 @@
-#include "commands/DriveCommand.h"
+#include "commands/DrivetrainCommand.h"
 
 DriveCommand::DriveCommand(Drivetrain& drivetrain, ControlBoard& controlboard)
     : _drivetrain{drivetrain}, _controlboard{controlboard} {

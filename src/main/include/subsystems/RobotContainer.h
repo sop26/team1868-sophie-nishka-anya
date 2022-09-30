@@ -8,9 +8,9 @@
 
 #include "commands/ExampleCommand.h"
 #include "subsystems/ExampleSubsystem.h"
-#include "ControlBoard.h"
+#include "subsystems/ControlBoard.h"
 
-#include "commands/DriveCommand.h"
+#include "commands/DrivetrainCommand.h"
 #include "commands/ShootCommand.h"
 
 #include "subsystems/Drivetrain.h"
