@@ -4,7 +4,7 @@
 #include <frc2/command/CommandHelper.h>
 
 #include "subsystems/Shooter.h"
-#include "subsystems/ControlBoard.h"
+#include "ControlBoard.h"
 
 /**
  * An example command that uses an example subsystem.
@@ -27,6 +27,8 @@ class ShootCommand
   ShootCommand(Shooter& shooter, ControlBoard& controlBoard);
 
   void Execute() override;
+  bool IsFinished();
+  void End(bool interrupted) override;
 
  private:
   Shooter& _shooter;

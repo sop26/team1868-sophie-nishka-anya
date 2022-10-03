@@ -4,7 +4,7 @@
 #include <frc2/command/CommandHelper.h>
 
 #include "subsystems/Drivetrain.h"
-#include "subsystems/ControlBoard.h"
+#include "ControlBoard.h"
 
 /**
  * An example command that uses an example subsystem.
