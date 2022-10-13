@@ -4,8 +4,6 @@
 #include <frc/Joystick.h>
 #include <frc/XboxController.h>
 
-
-
 class ControlBoard {
  public:
   ControlBoard();
@@ -22,19 +20,19 @@ class ControlBoard {
   // bool GetLeftTrigger();
   // bool GetRightTrigger();
 
- 
   double GetLeftX();
   double GetRightX();
   double GetLeftY();
   double GetRightY();
 
-  
   bool GetX();
   bool GetFlywheelDesired();
   bool GetFlywheelPrepDesired();
-  bool IsDown(frc::Joystick &joystick, int PORT);
+  bool GetFlywheelReset();
+  bool GetFlywheelPrepReset();
+  bool IsPressed(frc::Joystick& joystick, int PORT);
+  bool IsReleased(frc::Joystick& joystick, int PORT);
   void Update();
-
 
  private:
   // Joysticks for drive
@@ -46,10 +44,11 @@ class ControlBoard {
   // frc::Joystick _flywheelJoyX{FLYWHEEL_JOY_X_PORT};
   bool _flywheelDesired;
   bool _flywheelPrepDesired;
+  bool _flywheelReset;
+  bool _flywheelPrepReset;
   frc::Joystick _flywheelButton{FLYWHEEL_BUTTON_PORT};
   frc::Joystick _flywheelPrepButton{FLYWHEEL_PREP_BUTTON_PORT};
-  
-  
+
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

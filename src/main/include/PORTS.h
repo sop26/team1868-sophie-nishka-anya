@@ -28,7 +28,7 @@ constexpr int LEFT_SECONDARY_ID = 2;
 constexpr int RIGHT_PRIMARY_ID = 1;
 constexpr int RIGHT_SECONDARY_ID = 3;
 
-//shooter
+// shooter
 constexpr int FLYWHEEL_MOTOR_PORT = 8;
 constexpr int FLYWHEEL_PREP_MOTOR_PORT = 5;
 // constexpr int FLYWHEEL_JOY_X_PORT = 2;
@@ -36,3 +36,8 @@ constexpr int FLYWHEEL_BUTTON_PORT = 3;
 constexpr int FLYWHEEL_PREP_BUTTON_PORT = 4;
 constexpr int OPERATOR_JOY_B_USB_PORT = 2;
 
+// encoders n
+constexpr int RIGHT_ENCODER_PORT_A = 0;
+constexpr int RIGHT_ENCODER_PORT_B = 0;
+constexpr int LEFT_ENCODER_PORT_A = 0;
+constexpr int LEFT_ENCODER_PORT_B = 0;

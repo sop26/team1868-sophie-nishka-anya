@@ -10,7 +10,6 @@
 #include "subsystems/Shooter.h"
 #include "commands/ShooterCommand.h"
 
-
 /**
  * This class is where the bulk of the robot should be declared.  Since
  * Command-based is a "declarative" paradigm, very little robot logic should
@@ -21,7 +20,6 @@
 class RobotContainer {
  public:
   RobotContainer();
-  void UpdateControls();
 
  private:
   // The robot's subsystems and commands are defined here...
@@ -32,5 +30,4 @@ class RobotContainer {
   ShooterCommand _shooterCommand{_shooter, _humanControl};
   void ConfigureButtonBindings();
   bool _flywheelDesired;
-  
 };

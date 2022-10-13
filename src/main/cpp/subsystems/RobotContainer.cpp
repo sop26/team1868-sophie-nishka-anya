@@ -7,7 +7,10 @@
 RobotContainer::RobotContainer() {
   ///* store the commands and reuse them*/
   _drivetrain.SetDefaultCommand(_drivetrainCommand);
+  frc2::CommandScheduler::GetInstance().Schedule(&_drivetrainCommand);
 
+  _shooter.SetDefaultCommand(_shooterCommand);
+  frc2::CommandScheduler::GetInstance().Schedule(&_shooterCommand);
   // Configure the button bindings
   ConfigureButtonBindings();
 }
@@ -20,8 +23,3 @@ void RobotContainer::ConfigureButtonBindings() {
 
 // declaring = know that they exist
 // defining = set what the things (that are defined) are equal to
-
-void RobotContainer::UpdateControls(){
-  _humanControl.Update();
-
-}
