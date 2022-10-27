@@ -12,7 +12,7 @@ DrivetrainCommand::DrivetrainCommand(Drivetrain& drivetrain,
 }
 
 double GetDeadbandAdjustment(double value) {
-  std::cerr << value << std::endl;
+  // std::cerr << value << std::endl;
   // if it's lower than the deadband, the robot should not move
   if (fabs(value) < DEADBAND_MAX) {
     return 0.0;
@@ -37,6 +37,11 @@ void DrivetrainCommand::Execute() {
       GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftY()));
   double rotation =
       GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetRightX()));
+
+  // double thrust =
+  //     GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetRightY()));
+  // double rotation =
+  //     GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftX()));
   _drivetrain.CurvatureDrive(
       thrust, (thrust < -DEADBAND_MAX) ? rotation : -rotation,
       _humanControl.GetRightBumper());  // true is allowTurnInPlace
