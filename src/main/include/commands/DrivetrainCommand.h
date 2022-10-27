@@ -8,6 +8,8 @@
 #include <frc2/command/CommandHelper.h>
 #include "subsystems/Drivetrain.h"
 
+constexpr double DEADBAND_MAX            = 0.1;
+
 /**
  * An example command that uses an example subsystem.
  *

@@ -29,3 +29,7 @@ bool ControlBoard::GetLeftBumper() {
 bool ControlBoard::GetLeftTrigger() {
   return _xbox.GetLeftTriggerAxis() > LEFT_TRIGGER_BARRIER;
 }
+
+bool ControlBoard::GetRightBumper() {
+  return _xbox.GetRightBumper();
+}
