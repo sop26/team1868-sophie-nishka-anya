@@ -3,6 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "commands/DrivetrainCommand.h"
+#include <iostream>
 
 DrivetrainCommand::DrivetrainCommand(Drivetrain& drivetrain,
                                      ControlBoard& humanControl)
@@ -11,31 +12,33 @@ DrivetrainCommand::DrivetrainCommand(Drivetrain& drivetrain,
 }
 
 double GetDeadbandAdjustment(double value) {
+  std::cerr << value << std::endl;
   // if it's lower than the deadband, the robot should not move
   if (fabs(value) < DEADBAND_MAX) {
     return 0.0;
-  } else if (value > DEADBAND_MAX) {  // robot power is 0.0-1.0
-    return (value - DEADBAND_MAX) / (1 - DEADBAND_MAX);
+    // } else if (value > DEADBAND_MAX) {  // robot power is 0.0-1.0
+    //   return (value - DEADBAND_MAX) / (1 - DEADBAND_MAX);
+    // } else {
+    //   return (value + DEADBAND_MAX) / (1 - DEADBAND_MAX);
   } else {
-    return (value + DEADBAND_MAX) / (1 - DEADBAND_MAX);
+    return value;
   }
 }
 
 double GetCubicAdjustment(double value) {
-  return std::pow(value, 3.0);
+  // return std::pow(value, 3.0);
+  return value;
 }
 
 void DrivetrainCommand::Execute() {
   // if the left trigger is pressed use arcade drive
   // else use curvature drive
-
-  //   if (_humanControl.GetLeftTrigger()) {
-  // _drivetrain.ArcadeDrive(_humanControl.GetRightY(),
-  //                         _humanControl.GetLeftX());
-  //   } else {
+  double thrust =
+      GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftY()));
+  double rotation =
+      GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetRightX()));
   _drivetrain.CurvatureDrive(
-      GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftY())),
-      GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetRightX())),
+      thrust, (thrust < -DEADBAND_MAX) ? rotation : -rotation,
       _humanControl.GetRightBumper());  // true is allowTurnInPlace
 }
 
