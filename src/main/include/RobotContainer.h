@@ -1,7 +1,3 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #pragma once
 
 #include <frc2/command/Command.h>
@@ -30,7 +26,6 @@ class RobotContainer {
   void UpdateLEDs();
 
  private:
-  // The robot's subsystems and commands are defined here...
   Drivetrain _drivetrain{};
   Shooter _shooter{};
   ControlBoard _controlBoard{};
