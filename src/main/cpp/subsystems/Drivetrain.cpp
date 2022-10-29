@@ -5,9 +5,7 @@ Drivetrain::Drivetrain() {
   _leftMotorGroup.SetInverted(true);
 }
 
-void Drivetrain::Periodic() {
-  // Implementation of subsystem periodic method goes here.
-}
+void Drivetrain::Periodic() {}
 
 void Drivetrain::ArcadeDrive(double thrust, double rotate, bool squareInputs) {
   _differentialDrive.ArcadeDrive(thrust, rotate, squareInputs);
