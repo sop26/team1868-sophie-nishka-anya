@@ -15,10 +15,10 @@ void Drivetrain::ArcadeDrive(double thrust, double rotation) {
 }
 
 // curvature
-void Drivetrain::CurvatureDrive(double thrust, double rotation, double quickRotation,
-                                bool allowTurnInPlace) {
+void Drivetrain::CurvatureDrive(double thrust, double rotation,
+                                double quickRotation, bool allowTurnInPlace) {
   if (allowTurnInPlace) {
-    _drive.CurvatureDrive(thrust, quickRotation, allowTurnInPlace);
+    _drive.CurvatureDrive(ZERO_THROTTLE, quickRotation, allowTurnInPlace);
   } else {
     _drive.CurvatureDrive(thrust, rotation, allowTurnInPlace);
   }
