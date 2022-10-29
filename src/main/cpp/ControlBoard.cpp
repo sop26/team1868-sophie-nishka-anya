@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "subsystems/ControlBoard.h"
+#include "ControlBoard.h"
 
 ControlBoard::ControlBoard() {
   _leftJoyX = 0.0;
@@ -35,7 +35,6 @@ void ControlBoard::ReadControls() {
 
 bool ControlBoard::GetFlywheelDesired() {
   return _flywheelDesired;
-  
 }
 
 bool ControlBoard::GetFlywheelPrepDesired() {

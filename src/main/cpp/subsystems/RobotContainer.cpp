@@ -4,14 +4,12 @@
 
 #include "subsystems/RobotContainer.h"
 
-RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
+RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
 
   _drivetrain.SetDefaultCommand(_driveCommand);
   frc2::CommandScheduler::GetInstance().Schedule(&_driveCommand);
 
-  
-  
   ConfigureButtonBindings();
 }
 
@@ -19,9 +17,7 @@ void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
 }
 
-void RobotContainer::UpdateSensors() {
-  
-}
+void RobotContainer::UpdateSensors() {}
 
 void RobotContainer::UpdateControls() {
   if (_controlBoard.GetFlywheelPrepDesired()) {
@@ -36,5 +32,5 @@ void RobotContainer::UpdateControls() {
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
-  return &m_autonomousCommand;
+  return nullptr;
 }

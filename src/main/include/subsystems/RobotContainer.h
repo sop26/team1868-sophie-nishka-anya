@@ -6,9 +6,7 @@
 
 #include <frc2/command/Command.h>
 
-#include "commands/ExampleCommand.h"
-#include "subsystems/ExampleSubsystem.h"
-#include "subsystems/ControlBoard.h"
+#include "ControlBoard.h"
 
 #include "commands/DrivetrainCommand.h"
 #include "commands/ShootCommand.h"
@@ -34,8 +32,6 @@ class RobotContainer {
 
  private:
   // The robot's subsystems and commands are defined here...
-  ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
   Drivetrain _drivetrain{};
   Shooter _shooter{};
   ControlBoard _controlBoard{};
