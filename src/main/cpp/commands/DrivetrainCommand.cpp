@@ -43,8 +43,7 @@ void DrivetrainCommand::Execute() {
   // double rotation =
   //     GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftX()));
   _drivetrain.CurvatureDrive(
-      thrust, (thrust < -DEADBAND_MAX) ? rotation : -rotation,
-      (thrust < -DEADBAND_MAX) ? quickRotation : -quickRotation,
+      thrust, (thrust < -DEADBAND_MAX) ? rotation : -rotation, quickRotation,
       (fabs(quickRotation) > QUICKTURN_DEADBAND));  // true is allowTurnInPlace
 }
 
