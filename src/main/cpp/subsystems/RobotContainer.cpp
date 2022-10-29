@@ -6,26 +6,14 @@
 
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
-
   _drivetrain.SetDefaultCommand(_driveCommand);
-  frc2::CommandScheduler::GetInstance().Schedule(&_driveCommand);
-
-  ConfigureButtonBindings();
+  _controlBoard._prepFlywheelButton.WhenPressed(_shootCommand);
+  _controlBoard._flywheelButton.WhenPressed(_shootCommand);
 }
 
-void RobotContainer::ConfigureButtonBindings() {
-  // Configure your button bindings here
-}
-
-void RobotContainer::UpdateSensors() {}
-
-void RobotContainer::UpdateControls() {
-  if (_controlBoard.GetFlywheelPrepDesired()) {
-    frc2::CommandScheduler::GetInstance().Schedule(true, &_shootCommand);
-    _ledController.UpdateShooting();
-  } else {
-    _ledController.Update();
-  }
+void RobotContainer::UpdateLEDs() {
+  _controlBoard.GetPrepFlywheelDesired() ? _ledController.UpdateShooting()
+                                         : _ledController.Update();
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

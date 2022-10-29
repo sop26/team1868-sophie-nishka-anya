@@ -13,7 +13,7 @@ static const int OPERATOR_JOY_USB_PORT = 3;
 static const int OPERATOR_JOY_B_USB_PORT = 2;
 
 static const int FLYWHEEL_BUTTON_PORT = 4;
-static const int FLYWHEEL_PREP_BUTTON_PORT = 3;
+static const int PREP_FLYWHEEL_BUTTON_PORT = 3;
 
 static const int FLYWHEEL_MOTOR_PORT = 8;
 static const int FLYWHEEL_PREP_MOTOR_PORT = 5;

@@ -5,6 +5,7 @@
 
 #include "subsystems/Shooter.h"
 #include "ControlBoard.h"
+#include "LEDController.h"
 
 /**
  * An example command that uses an example subsystem.
@@ -27,6 +28,4 @@ class ShootCommand
  private:
   Shooter& _shooter;
   ControlBoard& _controlBoard;
-  // std::function<double()> m_forward;
-  // std::function<double()> m_rotation;
 };

@@ -2,18 +2,13 @@
 
 ShootCommand::ShootCommand(Shooter& shooter, ControlBoard& controlBoard)
     : _shooter{shooter}, _controlBoard{controlBoard} {
-  _shooter.SetFlywheelOutput(_controlBoard.GetFlywheelJoystickValue());
   AddRequirements(&shooter);
 }
 
 void ShootCommand::Execute() {
   _shooter.SetFlywheelOutput(_controlBoard.GetFlywheelJoystickValue());
-  if (_controlBoard.GetFlywheelDesired()) {
-    _shooter.SetFlywheelPrepOutput(0.5);
-  }
-  else {
-    _shooter.SetFlywheelPrepOutput(0.0);
-  }
+  _shooter.SetFlywheelPrepOutput(_controlBoard.GetFlywheelDesired() ? 0.5
+                                                                    : 0.0);
 }
 
 void ShootCommand::End(bool interrupted) {
@@ -22,5 +17,5 @@ void ShootCommand::End(bool interrupted) {
 }
 
 bool ShootCommand::IsFinished() {
-  return !_controlBoard.GetFlywheelPrepDesired();
+  return !_controlBoard.GetPrepFlywheelDesired();
 }

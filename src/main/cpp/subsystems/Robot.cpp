@@ -18,9 +18,7 @@ void Robot::RobotInit() {}
  * LiveWindow and SmartDashboard integrated updating.
  */
 void Robot::RobotPeriodic() {
-  frc2::CommandScheduler::GetInstance().Run();
-  _container.UpdateControls();
-  _container.UpdateSensors();
+  _container.UpdateLEDs();
 }
 
 /**

@@ -27,8 +27,7 @@ class RobotContainer {
   RobotContainer();
 
   frc2::Command* GetAutonomousCommand();
-  void UpdateControls();
-  void UpdateSensors();
+  void UpdateLEDs();
 
  private:
   // The robot's subsystems and commands are defined here...
@@ -39,6 +38,4 @@ class RobotContainer {
 
   DriveCommand _driveCommand{_drivetrain, _controlBoard};
   ShootCommand _shootCommand{_shooter, _controlBoard};
-
-  void ConfigureButtonBindings();
 };

@@ -8,26 +8,21 @@
 #pragma once
 // #include <frc/WPILib.h>
 #include <frc/Joystick.h>
-#include "Ports.h"
+#include <frc2/command/button/JoystickButton.h>
+#include "PORTS.h"
 
 class ControlBoard {
  public:
-  enum Joysticks { kLeftJoy, kRightJoy };
-  enum Axes { kX, kY };
-
   ControlBoard();
 
-  void ReadAllButtons();
   bool GetFlywheelDesired();
-  bool GetFlywheelPrepDesired();
+  bool GetPrepFlywheelDesired();
   double GetFlywheelJoystickValue();
   double GetLeftJoyX();
   double GetLeftJoyY();
   double GetRightJoyX();
   double GetRightJoyY();
   double GetFlywheelX();
-
-  ~ControlBoard();
 
  private:
   // Joysticks for drive
@@ -37,4 +32,9 @@ class ControlBoard {
   // Joysticks for operator
   frc::Joystick operatorJoy_{OPERATOR_JOY_USB_PORT};
   frc::Joystick operatorJoyB_{OPERATOR_JOY_B_USB_PORT};
+
+ public:
+  frc2::JoystickButton _flywheelButton{&operatorJoyB_, FLYWHEEL_BUTTON_PORT};
+  frc2::JoystickButton _prepFlywheelButton{&operatorJoyB_,
+                                           PREP_FLYWHEEL_BUTTON_PORT};
 };
