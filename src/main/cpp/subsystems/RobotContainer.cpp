@@ -26,8 +26,6 @@ void RobotContainer::UpdateControls() {
   } else {
     _ledController.Update();
   }
-
-  _controlBoard.ReadControls();
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

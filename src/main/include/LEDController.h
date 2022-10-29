@@ -8,10 +8,10 @@ class LEDController {
   LEDController();
   void Update();
   void UpdateShooting();
-  ~LEDController();
 
  private:
-  int _hue, _firstPixelHue;
+  int _hue = 1;
+  int _firstPixelHue = 1;
   int _counter = 0;
   int _secondaryCounter = 0;
   frc::AddressableLED _ledStrip{LED_PORT};

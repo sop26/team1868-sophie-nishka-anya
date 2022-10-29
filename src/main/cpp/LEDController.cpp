@@ -2,9 +2,6 @@
 
 // Constructor - creates an LED controller!
 LEDController::LEDController() {
-  _hue = 1;
-  _firstPixelHue = 1;
-
   for (int i = 0; i < LED_LENGTH; i++) {
     if (i % 2 == 0) {
       _ledBuffer[i].SetHSV(_hue, LED_SAT, LED_VAL);
@@ -28,23 +25,17 @@ void LEDController::Update() {
 }
 
 void LEDController::UpdateShooting() {
-    _secondaryCounter += 1;
-    if (_secondaryCounter > 5) {
-        _counter++;
-        _secondaryCounter = 0;
+  _secondaryCounter += 1;
+  if (_secondaryCounter > 5) {
+    _counter++;
+    _secondaryCounter = 0;
+  }
+  for (int i = 0; i < LED_LENGTH; i++) {
+    if ((i + _counter) % 6 < 3) {
+      _ledBuffer[i].SetHSV(0, 200, 70);
+    } else {
+      _ledBuffer[i].SetHSV(180, 200, 70);
     }
-    for (int i = 0; i < LED_LENGTH; i++) {
-        if ((i + _counter) % 6 < 3) {
-            _ledBuffer[i].SetHSV(0, 200, 70);
-        }
-        else {
-            _ledBuffer[i].SetHSV(180, 200, 70);
-        }
-    }
-    _ledStrip.SetData(_ledBuffer);
-    
-   
+  }
+  _ledStrip.SetData(_ledBuffer);
 }
-
-// Destructor
-LEDController::~LEDController() {}

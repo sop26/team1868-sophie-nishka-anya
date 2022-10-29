@@ -6,10 +6,6 @@ DriveCommand::DriveCommand(Drivetrain& drivetrain, ControlBoard& controlboard)
 }
 
 void DriveCommand::Execute() {
-  _drivetrain.CurvatureDrive(
-      -_controlboard.GetJoystickValue(ControlBoard::Joysticks::kLeftJoy,
-                                      ControlBoard::Axes::kY),
-      _controlboard.GetJoystickValue(ControlBoard::Joysticks::kRightJoy,
-                                     ControlBoard::Axes::kX),
-      true);
+  _drivetrain.CurvatureDrive(-_controlboard.GetLeftJoyY(),
+                             _controlboard.GetRightJoyX(), true);
 }

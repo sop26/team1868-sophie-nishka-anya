@@ -7,79 +7,30 @@
 
 #include "ControlBoard.h"
 
-ControlBoard::ControlBoard() {
-  _leftJoyX = 0.0;
-  _leftJoyY = 0.0;
-  _rightJoyX = 0.0;
-  _rightJoyY = 0.0;
-  _flywheelJoyX = 0.0;
+ControlBoard::ControlBoard() {}
 
-  _flywheelDesired = false;
-  _flywheelPrepDesired = false;
-  ReadControls();
+double ControlBoard::GetLeftJoyX() {
+  return leftJoy_.GetX();
 }
-
-void ControlBoard::ReadControls() {
-  ReadAllButtons();
-  // Reading joystick values
-  _leftJoyX = leftJoy_.GetX();
-  _leftJoyY = leftJoy_.GetY();
-
-  _rightJoyX = rightJoy_.GetX();
-  _rightJoyY = rightJoy_.GetY();
-
-  _flywheelJoyX = operatorJoyB_.GetX();
-  _flywheelDesired = flywheelButton_.IsDown();
-  _flywheelPrepDesired = flywheelPrepButton_.IsDown();
+double ControlBoard::GetLeftJoyY() {
+  return leftJoy_.GetY();
+}
+double ControlBoard::GetRightJoyX() {
+  return rightJoy_.GetX();
+}
+double ControlBoard::GetRightJoyY() {
+  return rightJoy_.GetX();
+}
+double ControlBoard::GetFlywheelJoystickValue() {
+  return operatorJoyB_.GetX();
 }
 
 bool ControlBoard::GetFlywheelDesired() {
-  return _flywheelDesired;
+  return operatorJoyB_.GetRawButton(FLYWHEEL_BUTTON_PORT);
 }
 
 bool ControlBoard::GetFlywheelPrepDesired() {
-  return _flywheelPrepDesired;
-}
-
-double ControlBoard::GetJoystickValue(Joysticks j, Axes a) {
-  switch (j) {
-    case (kLeftJoy):
-      switch (a) {
-        case (kX):
-          return _leftJoyX;
-        case (kY):
-          return _leftJoyY;
-        default:
-          printf("WARNING: no joystick given (left)\n");
-          return 0.0;
-      }
-      break;
-    case (kRightJoy):
-      switch (a) {
-        case (kX):
-          return _rightJoyX;
-        case (kY):
-          return _rightJoyY;
-        default:
-          printf("WARNING: no joystick given (right)\n");
-          return 0.0;
-      }
-      break;
-    default:
-      printf(
-          "WARNING: Joystick value not received in "
-          "ControlBoard::GetJoystickValue\n");
-  }
-  return 0;
-}
-
-double ControlBoard::GetFlywheelJoystickValue() {
-  return _flywheelJoyX;
-}
-
-void ControlBoard::ReadAllButtons() {
-  flywheelButton_.ReadValue();
-  flywheelPrepButton_.ReadValue();
+  return operatorJoyB_.GetRawButton(FLYWHEEL_PREP_BUTTON_PORT);
 }
 
 ControlBoard::~ControlBoard() {}

@@ -7,7 +7,6 @@
 
 #pragma once
 // #include <frc/WPILib.h>
-#include "ButtonReader.h"
 #include <frc/Joystick.h>
 #include "Ports.h"
 
@@ -18,18 +17,19 @@ class ControlBoard {
 
   ControlBoard();
 
-  void ReadControls();
   void ReadAllButtons();
-  double GetJoystickValue(Joysticks j, Axes a);
   bool GetFlywheelDesired();
   bool GetFlywheelPrepDesired();
   double GetFlywheelJoystickValue();
+  double GetLeftJoyX();
+  double GetLeftJoyY();
+  double GetRightJoyX();
+  double GetRightJoyY();
+  double GetFlywheelX();
 
   ~ControlBoard();
 
  private:
-  double _leftJoyX, _leftJoyY, _rightJoyX, _rightJoyY, _flywheelJoyX;
-
   // Joysticks for drive
   frc::Joystick leftJoy_{LEFT_JOY_USB_PORT};
   frc::Joystick rightJoy_{RIGHT_JOY_USB_PORT};
@@ -37,10 +37,4 @@ class ControlBoard {
   // Joysticks for operator
   frc::Joystick operatorJoy_{OPERATOR_JOY_USB_PORT};
   frc::Joystick operatorJoyB_{OPERATOR_JOY_B_USB_PORT};
-
-  // flywheel
-  ButtonReader flywheelButton_{&operatorJoyB_, FLYWHEEL_BUTTON_PORT};
-  ButtonReader flywheelPrepButton_{&operatorJoyB_, FLYWHEEL_PREP_BUTTON_PORT};
-  bool _flywheelDesired;
-  bool _flywheelPrepDesired;
 };

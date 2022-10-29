@@ -19,8 +19,8 @@ static const int FLYWHEEL_MOTOR_PORT = 8;
 static const int FLYWHEEL_PREP_MOTOR_PORT = 5;
 
 // LEDS
-constexpr int LED_LENGTH =
-    38;  // change this to light up more or less LEDs! Max: 38
+// change this to light up more or less LEDs! Max: 38
+constexpr int LED_LENGTH = 38;
 constexpr int LED_PORT = 0;   // may be incorrect. check!
 constexpr int LED_SAT = 200;  // do not change
 constexpr int LED_VAL = 150;  // do not change
