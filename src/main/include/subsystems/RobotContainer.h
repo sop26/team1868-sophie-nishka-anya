@@ -6,9 +6,7 @@
 
 #include <frc2/command/Command.h>
 
-#include "commands/ExampleCommand.h"
-#include "subsystems/ExampleSubsystem.h"
-#include "subsystems/ControlBoard.h"
+#include "ControlBoard.h"
 
 #include "commands/DrivetrainCommand.h"
 #include "commands/ShootCommand.h"
@@ -29,13 +27,10 @@ class RobotContainer {
   RobotContainer();
 
   frc2::Command* GetAutonomousCommand();
-  void UpdateControls();
-  void UpdateSensors();
+  void UpdateLEDs();
 
  private:
   // The robot's subsystems and commands are defined here...
-  ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
   Drivetrain _drivetrain{};
   Shooter _shooter{};
   ControlBoard _controlBoard{};
@@ -43,6 +38,4 @@ class RobotContainer {
 
   DriveCommand _driveCommand{_drivetrain, _controlBoard};
   ShootCommand _shootCommand{_shooter, _controlBoard};
-
-  void ConfigureButtonBindings();
 };

@@ -7,29 +7,24 @@
 
 #pragma once
 // #include <frc/WPILib.h>
-#include "ButtonReader.h"
 #include <frc/Joystick.h>
-#include "Ports.h"
+#include <frc2/command/button/JoystickButton.h>
+#include "PORTS.h"
 
 class ControlBoard {
  public:
-  enum Joysticks { kLeftJoy, kRightJoy };
-  enum Axes { kX, kY };
-
   ControlBoard();
 
-  void ReadControls();
-  void ReadAllButtons();
-  double GetJoystickValue(Joysticks j, Axes a);
   bool GetFlywheelDesired();
-  bool GetFlywheelPrepDesired();
+  bool GetPrepFlywheelDesired();
   double GetFlywheelJoystickValue();
-
-  ~ControlBoard();
+  double GetLeftJoyX();
+  double GetLeftJoyY();
+  double GetRightJoyX();
+  double GetRightJoyY();
+  double GetFlywheelX();
 
  private:
-  double _leftJoyX, _leftJoyY, _rightJoyX, _rightJoyY, _flywheelJoyX;
-
   // Joysticks for drive
   frc::Joystick leftJoy_{LEFT_JOY_USB_PORT};
   frc::Joystick rightJoy_{RIGHT_JOY_USB_PORT};
@@ -38,9 +33,8 @@ class ControlBoard {
   frc::Joystick operatorJoy_{OPERATOR_JOY_USB_PORT};
   frc::Joystick operatorJoyB_{OPERATOR_JOY_B_USB_PORT};
 
-  // flywheel
-  ButtonReader flywheelButton_{&operatorJoyB_, FLYWHEEL_BUTTON_PORT};
-  ButtonReader flywheelPrepButton_{&operatorJoyB_, FLYWHEEL_PREP_BUTTON_PORT};
-  bool _flywheelDesired;
-  bool _flywheelPrepDesired;
+ public:
+  frc2::JoystickButton _flywheelButton{&operatorJoyB_, FLYWHEEL_BUTTON_PORT};
+  frc2::JoystickButton _prepFlywheelButton{&operatorJoyB_,
+                                           PREP_FLYWHEEL_BUTTON_PORT};
 };
