@@ -3,7 +3,6 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "commands/DrivetrainCommand.h"
-#include <iostream>
 
 DrivetrainCommand::DrivetrainCommand(Drivetrain& drivetrain,
                                      ControlBoard& humanControl)
@@ -36,15 +35,17 @@ void DrivetrainCommand::Execute() {
   double thrust =
       GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftY()));
   double rotation =
+      GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftX()));
+  double quickRotation =
       GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetRightX()));
-
   // double thrust =
   //     GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetRightY()));
   // double rotation =
   //     GetCubicAdjustment(GetDeadbandAdjustment(_humanControl.GetLeftX()));
   _drivetrain.CurvatureDrive(
       thrust, (thrust < -DEADBAND_MAX) ? rotation : -rotation,
-      _humanControl.GetRightBumper());  // true is allowTurnInPlace
+      (thrust < -DEADBAND_MAX) ? quickRotation : -quickRotation,
+      (fabs(quickRotation) > QUICKTURN_DEADBAND));  // true is allowTurnInPlace
 }
 
 // bool hint from top right trigger of the container

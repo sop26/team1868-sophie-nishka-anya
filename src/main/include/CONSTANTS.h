@@ -5,3 +5,4 @@
 #pragma once
 
 constexpr double LEFT_TRIGGER_BARRIER = 0.5;
+constexpr double QUICKTURN_DEADBAND = 0.15;

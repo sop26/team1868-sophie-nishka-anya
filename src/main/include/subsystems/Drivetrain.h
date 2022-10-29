@@ -10,11 +10,12 @@
 #include <frc/drive/DifferentialDrive.h>
 #include "ControlBoard.h"
 
+
 class Drivetrain : public frc2::SubsystemBase {
  public:
   Drivetrain();
   void ArcadeDrive(double thrust, double rotation);
-  void CurvatureDrive(double thrust, double rotation, bool allowTurnInPlace);
+  void CurvatureDrive(double thrust, double rotation, double quickRotation, bool allowTurnInPlace);
 
  private:
   WPI_TalonSRX _leftPrimary{LEFT_PRIMARY_ID};
