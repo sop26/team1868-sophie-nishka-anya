@@ -6,6 +6,7 @@
 
 #include "commands/DrivetrainCommand.h"
 #include "commands/ShootCommand.h"
+#include "commands/PrepShotCommand.h"
 
 #include "subsystems/Drivetrain.h"
 #include "subsystems/Shooter.h"
@@ -23,7 +24,6 @@ class RobotContainer {
   RobotContainer();
 
   frc2::Command* GetAutonomousCommand();
-  void UpdateLEDs();
 
  private:
   Drivetrain _drivetrain{};
@@ -32,5 +32,6 @@ class RobotContainer {
   LEDController _ledController{};
 
   DriveCommand _driveCommand{_drivetrain, _controlBoard};
-  ShootCommand _shootCommand{_shooter, _controlBoard};
+  ShootCommand _shootCommand{_shooter, _controlBoard, _ledController};
+  PrepShotCommand _prepShotCommand{_shooter, _controlBoard, _ledController};
 };

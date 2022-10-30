@@ -19,13 +19,13 @@ class Shooter : public frc2::SubsystemBase {
   void SimulationPeriodic() override;
 
   void SetFlywheelOutput(double power);
-  void SetFlywheelPrepOutput(double power);
+  void SetFlywheelFeederOutput(double power);
   frc::ShuffleboardTab& GetPowerTab();
   double GetMaxPower();
 
  private:
-  frc::Victor _flyWheelMotor{FLYWHEEL_MOTOR_PORT};
-  frc::Victor _flyWheelPrepMotor{FLYWHEEL_PREP_MOTOR_PORT};
+  frc::Victor _flywheelMotor{FLYWHEEL_MOTOR_PORT};
+  frc::Victor _flywheelFeederMotor{FLYWHEEL_PREP_MOTOR_PORT};
 
   frc::ShuffleboardTab& _powerTab;
   nt::NetworkTableEntry _maxPowerEntry;

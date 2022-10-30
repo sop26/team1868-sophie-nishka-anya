@@ -2,13 +2,8 @@
 
 RobotContainer::RobotContainer() {
   _drivetrain.SetDefaultCommand(_driveCommand);
-  _controlBoard._prepFlywheelButton.WhenPressed(_shootCommand);
-  _controlBoard._flywheelButton.WhenPressed(_shootCommand);
-}
-
-void RobotContainer::UpdateLEDs() {
-  _controlBoard.GetPrepFlywheelDesired() ? _ledController.UpdateShooting()
-                                         : _ledController.Update();
+  _shooter.SetDefaultCommand(_prepShotCommand);
+  _controlBoard._flywheelButton.WhenHeld(_shootCommand);
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

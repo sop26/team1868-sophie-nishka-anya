@@ -7,11 +7,11 @@
 #include "ControlBoard.h"
 #include "LEDController.h"
 
-class ShootCommand
-    : public frc2::CommandHelper<frc2::CommandBase, ShootCommand> {
+class PrepShotCommand
+    : public frc2::CommandHelper<frc2::CommandBase, PrepShotCommand> {
  public:
-  ShootCommand(Shooter& shooter, ControlBoard& controlBoard,
-               LEDController& ledController);
+  PrepShotCommand(Shooter& shooter, ControlBoard& controlBoard,
+                  LEDController& ledController);
 
   void Execute() override;
   void End(bool interrupted) override;

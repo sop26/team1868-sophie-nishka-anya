@@ -2,7 +2,7 @@
 #include "Ports.h"
 
 Shooter::Shooter() : _powerTab(frc::Shuffleboard::GetTab("Set Max Power")) {
-  _flyWheelMotor.SetInverted(false);
+  _flywheelMotor.SetInverted(false);
 
   _maxPowerEntry = GetPowerTab().Add("Max Drive Output", 0.5).GetEntry();
 }
@@ -17,11 +17,11 @@ double Shooter::GetMaxPower() {
 }
 
 void Shooter::SetFlywheelOutput(double power) {
-  _flyWheelMotor.Set(power);
+  _flywheelMotor.Set(power);
 }
 
-void Shooter::SetFlywheelPrepOutput(double power) {
-  _flyWheelPrepMotor.Set(power);
+void Shooter::SetFlywheelFeederOutput(double power) {
+  _flywheelFeederMotor.Set(power);
 }
 
 frc::ShuffleboardTab& Shooter::GetPowerTab() {
