@@ -15,27 +15,19 @@ class Shooter : public frc2::SubsystemBase {
  public:
   Shooter();
 
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
   void Periodic() override;
-
-  /**
-   * Will be called periodically whenever the CommandScheduler runs during
-   * simulation.
-   */
   void SimulationPeriodic() override;
 
   void SetFlywheelOutput(double power);
-  void SetFlywheelPrepOutput(double power);
+  void SetFlywheelFeederOutput(double power);
   frc::ShuffleboardTab& GetPowerTab();
   double GetMaxPower();
 
  private:
-  frc::Victor flyWheelMotor_{FLYWHEEL_MOTOR_PORT};
-  frc::Victor flyWheelPrepMotor_{FLYWHEEL_PREP_MOTOR_PORT};
+  frc::Victor _flywheelMotor{FLYWHEEL_MOTOR_PORT};
+  frc::Victor _flywheelFeederMotor{FLYWHEEL_PREP_MOTOR_PORT};
 
-  frc::ShuffleboardTab& powerTab_;
-  nt::NetworkTableEntry maxPowerEntry_;
-  double maxPower_;
+  frc::ShuffleboardTab& _powerTab;
+  nt::NetworkTableEntry _maxPowerEntry;
+  double _maxPower;
 };

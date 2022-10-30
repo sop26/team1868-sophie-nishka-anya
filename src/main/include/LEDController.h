@@ -1,7 +1,9 @@
 
 #pragma once
-#include "Ports.h"
+
 #include <frc/AddressableLED.h>
+
+#include "Ports.h"
 
 class LEDController {
  public:

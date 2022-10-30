@@ -1,31 +1,29 @@
 #include "subsystems/Shooter.h"
 #include "Ports.h"
 
-Shooter::Shooter() : powerTab_(frc::Shuffleboard::GetTab("Set Max Power")) {
-  flyWheelMotor_.SetInverted(false);
+Shooter::Shooter() : _powerTab(frc::Shuffleboard::GetTab("Set Max Power")) {
+  _flywheelMotor.SetInverted(false);
 
-  maxPowerEntry_ = GetPowerTab().Add("Max Drive Output", 0.5).GetEntry();
+  _maxPowerEntry = GetPowerTab().Add("Max Drive Output", 0.5).GetEntry();
 }
 
-void Shooter::Periodic() {
-  // Implementation of subsystem periodic method goes here.
-}
+void Shooter::Periodic() {}
 
 void Shooter::SimulationPeriodic() {}
 
 double Shooter::GetMaxPower() {
-  maxPower_ = maxPowerEntry_.GetDouble(0.5);
-  return maxPower_;
+  _maxPower = _maxPowerEntry.GetDouble(0.5);
+  return _maxPower;
 }
 
 void Shooter::SetFlywheelOutput(double power) {
-  flyWheelMotor_.Set(power);
+  _flywheelMotor.Set(power);
 }
 
-void Shooter::SetFlywheelPrepOutput(double power) {
-  flyWheelPrepMotor_.Set(power);
+void Shooter::SetFlywheelFeederOutput(double power) {
+  _flywheelFeederMotor.Set(power);
 }
 
 frc::ShuffleboardTab& Shooter::GetPowerTab() {
-  return powerTab_;
+  return _powerTab;
 }
