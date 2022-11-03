@@ -8,10 +8,13 @@ ShootCommand::ShootCommand(Shooter& shooter, ControlBoard& controlBoard,
   AddRequirements(&shooter);
 }
 
+void ShootCommand::Initialize() {
+  _shooter.SetFlywheelFeederOutput(0.5);
+}
+
 void ShootCommand::Execute() {
   _ledController.UpdateShooting();
   _shooter.SetFlywheelOutput(_controlBoard.GetFlywheelJoystickValue());
-  _shooter.SetFlywheelFeederOutput(0.5);
 }
 
 void ShootCommand::End(bool interrupted) {

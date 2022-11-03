@@ -13,6 +13,7 @@ class ShootCommand
   ShootCommand(Shooter& shooter, ControlBoard& controlBoard,
                LEDController& ledController);
 
+  void Initialize() override;
   void Execute() override;
   void End(bool interrupted) override;
 
