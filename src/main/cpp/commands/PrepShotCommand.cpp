@@ -13,6 +13,7 @@ void PrepShotCommand::Execute() {
     _ledController.UpdateShooting();
     _shooter.SetFlywheelOutput(_controlBoard.GetFlywheelJoystickValue());
   } else {
+    _shooter.SetFlywheelOutput(0);
     _ledController.Update();
   }
 }
