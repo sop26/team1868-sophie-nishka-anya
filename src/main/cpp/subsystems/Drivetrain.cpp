@@ -1,21 +1,19 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #include "subsystems/Drivetrain.h"
-#include <rev/CANSparkMax.h>
+#include "Ports.h"
 
 Drivetrain::Drivetrain() {
-  _rightMotors.SetInverted(true);
-  // Implementation of subsystem constructor goes here.
+  _leftMotorGroup.SetInverted(true);
 }
 
-void Drivetrain::ArcadeDrive(double thrust, double rotation) {
-  _drive.ArcadeDrive(thrust, rotation);
+void Drivetrain::Periodic() {}
+
+void Drivetrain::ArcadeDrive(double thrust, double rotate, bool squareInputs) {
+  _differentialDrive.ArcadeDrive(thrust, rotate, squareInputs);
 }
 
-// curvature
-void Drivetrain::CurvatureDrive(double thrust, double rotation,
+void Drivetrain::CurvatureDrive(double xSpeed, double zRotation,
                                 bool allowTurnInPlace) {
-  _drive.CurvatureDrive(thrust, rotation, allowTurnInPlace);
+  _differentialDrive.CurvatureDrive(xSpeed, zRotation, allowTurnInPlace);
 }
+
+void Drivetrain::SimulationPeriodic() {}

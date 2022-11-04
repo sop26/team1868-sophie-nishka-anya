@@ -1,12 +1,16 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #pragma once
 
+#include <frc2/command/Command.h>
+
 #include "ControlBoard.h"
-#include "subsystems/Drivetrain.h"
+
 #include "commands/DrivetrainCommand.h"
+#include "commands/ShootCommand.h"
+#include "commands/PrepShotCommand.h"
+
+#include "subsystems/Drivetrain.h"
+#include "subsystems/Shooter.h"
+#include "LEDController.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -19,10 +23,15 @@ class RobotContainer {
  public:
   RobotContainer();
 
+  frc2::Command* GetAutonomousCommand();
+
  private:
-  // The robot's subsystems and commands are defined here...
   Drivetrain _drivetrain{};
-  ControlBoard _humanControl{};
-  DrivetrainCommand _drivetrainCommand{_drivetrain, _humanControl};
-  void ConfigureButtonBindings();
+  Shooter _shooter{};
+  ControlBoard _controlBoard{};
+  LEDController _ledController{};
+
+  DriveCommand _driveCommand{_drivetrain, _controlBoard};
+  ShootCommand _shootCommand{_shooter, _controlBoard, _ledController};
+  PrepShotCommand _prepShotCommand{_shooter, _controlBoard, _ledController};
 };
