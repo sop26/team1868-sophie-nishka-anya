@@ -7,7 +7,7 @@ double ControlBoard::GetLeftJoyX() {
 }
 
 double ControlBoard::GetLeftJoyY() {
-  return leftJoy_.GetY();
+  return -leftJoy_.GetY();
 }
 
 double ControlBoard::GetRightJoyX() {
@@ -15,7 +15,7 @@ double ControlBoard::GetRightJoyX() {
 }
 
 double ControlBoard::GetRightJoyY() {
-  return rightJoy_.GetX();
+  return rightJoy_.GetY();
 }
 
 double ControlBoard::GetFlywheelJoystickValue() {
