@@ -4,7 +4,7 @@
 Shooter::Shooter() : _powerTab(frc::Shuffleboard::GetTab("Set Max Power")) {
   _flywheelMotor.SetInverted(false);
 
-  _maxPowerEntry = GetPowerTab().Add("Max Drive Output", 0.5).GetEntry();
+  // _maxPowerEntry = GetPowerTab().Add("Max Drive Output", 0.5).GetEntry();
 }
 
 void Shooter::Periodic() {}
