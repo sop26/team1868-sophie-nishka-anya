@@ -3,7 +3,6 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "subsystems/Drivetrain.h"
-#include <rev/CANSparkMax.h>
 
 Drivetrain::Drivetrain() {
   _rightMotors.SetInverted(true);

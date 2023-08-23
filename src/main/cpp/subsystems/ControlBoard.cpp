@@ -13,13 +13,13 @@ double ControlBoard::GetLeftX() {
   return _xbox.GetLeftX();
 }
 double ControlBoard::GetRightX() {
-  return _xbox.GetRightX();
+  return -_xbox.GetRightX();
 }
 double ControlBoard::GetLeftY() {
   return _xbox.GetLeftY();
 }
 double ControlBoard::GetRightY() {
-  return _xbox.GetRightY();
+  return -_xbox.GetRightY();
 }
 
 bool ControlBoard::GetLeftBumper() {
